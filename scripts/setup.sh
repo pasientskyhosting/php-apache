@@ -95,6 +95,7 @@ EOF
         rm -rf /var/www/html/var
         mkdir -p /var/www/html/var
         chown $APACHE_RUN_USER:$APACHE_RUN_GROUP /var/www/html/var
+        chown -R $APACHE_RUN_USER:$APACHE_RUN_GROUP /var/www/html/app/config
 
         sudo -u $APACHE_RUN_USER /usr/bin/composer run-script build-parameters --no-interaction
 
