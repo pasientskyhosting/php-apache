@@ -84,7 +84,9 @@ RUN sed -i 's/# nb_NO.UTF-8 UTF-8/nb_NO.UTF-8 UTF-8/' /etc/locale.gen && \
     ln -sf /etc/locale.alias /usr/share/locale/locale.alias && \
     locale-gen nb_NO.UTF-8
 
+
 ADD conf/default.conf $APACHE_CONFDIR/sites-available/000-default.conf
+ADD conf/mods-available/opcache.ini /etc/php/7.1/mods-available/opcache.ini
 
 RUN apt-get install sudo
 
@@ -99,6 +101,8 @@ RUN chmod 755 /start.sh && \
 ADD errors/ /var/www/errors
 
 # RUN docker-php-ext-install -j$(nproc) curl
+
+
 
 
 RUN composer_hash=$(wget -q -O - https://composer.github.io/installer.sig) && \
