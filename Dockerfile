@@ -1,4 +1,4 @@
-FROM php:7.1.5-apache
+FROM php:7.3.33-apache
 
 MAINTAINER Andreas Krüger <ak@patientsky.com>
 
